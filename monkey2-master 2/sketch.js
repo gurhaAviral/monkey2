@@ -49,9 +49,6 @@ score=0;
 
 function draw() {
 background("white");
-if (bananaGroup.collide(monkey)) {
-      bananaGroup.destroyEach();
-    }
   
 
 if(ground.x<0){
@@ -81,31 +78,32 @@ console.log("monkey runner")
 survivalTime=Math.ceil(frameCount/frameRate())  
 text("survival Time:" +survivalTime,100,50); 
 
+
+
 if(obstacleGroup.isTouching(monkey)){  
 ground.velocityX=0; 
-//monkey.velocityY=0;
-//banana.velocityX=0;
+monkey.velocityY=0;
+banana.velocityX=0;
 obstacle.velocityX=0;
 text("Game Over", 165, 188);
-textFont("Comic Sans MS");
-textSize(100);  
+textSize(12);  
 fill(0);
- obstacleGroup.setvelocityXEach(0);
-bananaGroup.setvelocityXEach(0);
+ obstacleGroup.setvelocityXeach=0;
+bananaGroup.setvelocityXeach=0;
 obstacleGroup.setLifetimeEach(-1);
 bananaGroup.setLifetimeEach(-1);
-//survivalTime=Math.ceil(frameCount/frameRate())  
-//text("survival Time:" +0 ,100,50); 
+survivalTime=Math.ceil(frameCount/frameRate())  
+text("survival Time:" +0 ,100,50); 
+
+
+
 
 }
-   } 
-  
-
-
+}
 
 function spawnbanana()
   {
-    if(frameCount %100 ===0)
+    if(frameCount %300 ===0)
     {
     banana=createSprite(300,300,20,10);
     banana.y=random(120,200);  
@@ -120,7 +118,7 @@ function spawnbanana()
   
 function spawnObstacle()
   {
-    if(frameCount %300   ===0)
+    if(frameCount %300 ===0)
     {
     obstacle=createSprite(300,350,20,10);
     obstacle.addImage(obstacleImage);
@@ -133,7 +131,10 @@ function spawnObstacle()
   }
 }  
 
- 
+  
+  
+  
+
 
 
 
